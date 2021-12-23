@@ -124,6 +124,14 @@
         })
     }
 
+    function fatchAllLevel() {
+     let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("level", false).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
@@ -164,6 +172,8 @@
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
+    <button class="btn" onclick="fatchAllLevel()">LevelFatch All</button>
+    <br>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
     <button class="btn" onclick="searchLevelLT()">Level&lt</button>
@@ -177,6 +187,8 @@
     <button class="btn" onclick="searchDefenceLT()">Defence&lt</button>
     <button class="btn" onclick="searchDefence()">Defence</button>
     <button class="btn" onclick="searchDefenceGT()">Defence&gt</button>
+
+    
 
   </div>
   <div id="message">message area</div>
